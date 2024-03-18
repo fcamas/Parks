@@ -23,5 +23,10 @@ struct Park: Codable, Identifiable , Hashable, Equatable{
     func hash(into hasher: inout Hasher) { // <-- Add required hash function
          hasher.combine(id)
      }
+}
 
+struct ParkImage: Codable, Identifiable, Equatable {
+    let title: String
+    let caption: String
+    let url: String
 }
