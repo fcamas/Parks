@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		115E83FB2BBBB79300D8E9DC /* ParkResponse .swift in Sources */ = {isa = PBXBuildFile; fileRef = 115E83FA2BBBB79300D8E9DC /* ParkResponse .swift */; };
+		115E83FD2BBBB90300D8E9DC /* ParkDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115E83FC2BBBB90300D8E9DC /* ParkDetailView.swift */; };
 		11B3EC172BB5F2D1006C5B52 /* ParksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B3EC162BB5F2D1006C5B52 /* ParksApp.swift */; };
 		11B3EC192BB5F2D1006C5B52 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B3EC182BB5F2D1006C5B52 /* ContentView.swift */; };
 		11B3EC1B2BB5F2D2006C5B52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11B3EC1A2BB5F2D2006C5B52 /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 
 /* Begin PBXFileReference section */
 		115E83FA2BBBB79300D8E9DC /* ParkResponse .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ParkResponse .swift"; sourceTree = "<group>"; };
+		115E83FC2BBBB90300D8E9DC /* ParkDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkDetailView.swift; sourceTree = "<group>"; };
 		11B3EC132BB5F2D1006C5B52 /* Parks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11B3EC162BB5F2D1006C5B52 /* ParksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParksApp.swift; sourceTree = "<group>"; };
 		11B3EC182BB5F2D1006C5B52 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,11 +55,12 @@
 		11B3EC152BB5F2D1006C5B52 /* Parks */ = {
 			isa = PBXGroup;
 			children = (
+				115E83FA2BBBB79300D8E9DC /* ParkResponse .swift */,
+				115E83FC2BBBB90300D8E9DC /* ParkDetailView.swift */,
 				11B3EC162BB5F2D1006C5B52 /* ParksApp.swift */,
 				11B3EC182BB5F2D1006C5B52 /* ContentView.swift */,
 				11B3EC1A2BB5F2D2006C5B52 /* Assets.xcassets */,
 				11B3EC1C2BB5F2D2006C5B52 /* Preview Content */,
-				115E83FA2BBBB79300D8E9DC /* ParkResponse .swift */,
 			);
 			path = Parks;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 				115E83FB2BBBB79300D8E9DC /* ParkResponse .swift in Sources */,
 				11B3EC192BB5F2D1006C5B52 /* ContentView.swift in Sources */,
 				11B3EC172BB5F2D1006C5B52 /* ParksApp.swift in Sources */,
+				115E83FD2BBBB90300D8E9DC /* ParkDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
