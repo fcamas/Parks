@@ -17,6 +17,18 @@ struct ParkDetailView: View {
                 Text(park.fullName)
                     .font(.largeTitle)
                 Text(park.description)
+                Rectangle()
+                    .aspectRatio(7/5, contentMode: .fit) // <-- Set aspect ratio 7:5
+                    .containerRelativeFrame(.horizontal, count: 9, span: 8, spacing: 16) // <-- Size the views relative to the container (spacing matches HStack spacing)
+                    .overlay {
+                        AsyncImage(url: URL(string: image.url)) { image in
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                        } placeholder: {
+                            Color(.systemGray4)
+                        }
+                    }
             }
             .padding()
         }
