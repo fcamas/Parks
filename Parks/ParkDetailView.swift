@@ -17,20 +17,31 @@ struct ParkDetailView: View {
                 Text(park.fullName)
                     .font(.largeTitle)
                 Text(park.description)
-                Rectangle()
-                    .aspectRatio(7/5, contentMode: .fit) // <-- Set aspect ratio 7:5
-                    .containerRelativeFrame(.horizontal, count: 9, span: 8, spacing: 16) // <-- Size the views relative to the container (spacing matches HStack spacing)
-                    .overlay {
-                        AsyncImage(url: URL(string: image.url)) { image in
-                            image
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                        } placeholder: {
-                            Color(.systemGray4)
+                
+                ScrollView(.horizontal) { // <-- Create a horizontally scrolling scroll view
+                    HStack(spacing: 16) { // <-- Use an HStack to arrange views horizontally with 16pt spacing between each view
+                        ForEach(park.images) { image in // <-- Add ForEach to iterate over the park's images.
+                            
+                            
+                            // TODO: Create Async Image view
+                            Rectangle()
+                                .aspectRatio(7/5, contentMode: .fit) // <-- Set aspect ratio 7:5
+                                .containerRelativeFrame(.horizontal, count: 9, span: 8, spacing: 16) // <-- Size the views relative to the container (spacing matches HStack spacing)
+                                .overlay {
+                                    AsyncImage(url: URL(string: image.url)) { image in
+                                        image
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fill)
+                                    } placeholder: {
+                                        Color(.systemGray4)
+                                    }
+                                }
+                                .cornerRadius(16)
+                            
+                                .safeAreaPadding(.horizontal)
                         }
-                    }
-            }
-            .padding()
+                    }.scrollTargetLayout()
+                }
         }
     }
 }
