@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 struct ParksResponse: Codable {
     let data: [Park]
 }
@@ -16,6 +15,7 @@ struct Park: Codable, Identifiable , Hashable, Equatable{
     let id: String
     let fullName: String
     let description: String
+    let latitude: String
     let longitude: String
     let images: [ParkImage]
     let name: String
@@ -34,3 +34,4 @@ struct ParkImage: Codable, Identifiable, Equatable {
             return url // <-- Use the url string as t he id since it will be unique for a given image
         }
 }
+
