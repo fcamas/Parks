@@ -13,6 +13,20 @@ struct ContentView: View {
         Text("Hello")
         
     }
+    private func fetchParks() async{
+        
+        // Do something when the view appears
+        print("On appear...")
+        
+        // URL for the API endpoint
+        // 👋👋👋 Make sure to replace {YOUR_API_KEY} in the URL with your actual NPS API Key
+        // Pass in any state code you like for the stateCode parameter. For instance, stateCode=fl (Florida state)
+        guard let apiKey = ProcessInfo.processInfo.environment["NPS_API_KEY"] else {
+            fatalError("API key not found in environment variables.")
+        }
+        
+        
+    }
 }
 
 #Preview {
