@@ -24,6 +24,7 @@ struct ContentView: View {
         guard let apiKey = ProcessInfo.processInfo.environment["NPS_API_KEY"] else {
             fatalError("API key not found in environment variables.")
         }
+        let url = URL(string: "https://developer.nps.gov/api/v1/parks?stateCode=wa&api_key=\(apiKey)")!
         
         
     }
