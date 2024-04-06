@@ -25,6 +25,28 @@ struct ContentView: View {
             fatalError("API key not found in environment variables.")
         }
         let url = URL(string: "https://developer.nps.gov/api/v1/parks?stateCode=wa&api_key=\(apiKey)")!
+        do {
+            
+            // Perform an asynchronous data request
+            let (data, _) = try await URLSession.shared.data(from: url)
+            
+            // Decode json data into ParksResponse type
+            let parksResponse = try JSONDecoder().decode(ParksResponse.self, from: data)
+            
+            // Get the array of parks from the response
+            let parks = parksResponse.data
+            
+            // Print the full name of each park in the array
+            for park in parks {
+                print(park.fullName)
+            }
+            
+            // TODO: Set the parks state property
+           
+            
+        } catch {
+            print(error.localizedDescription)
+        }
         
         
     }
