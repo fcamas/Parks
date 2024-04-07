@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var parks: [Park] = []
 
     var body: some View {
         Text("Hello")
@@ -43,6 +44,7 @@ struct ContentView: View {
             
             // TODO: Set the parks state property
            
+            self.parks = parks
             
         } catch {
             print(error.localizedDescription)
