@@ -11,13 +11,16 @@ struct ContentView: View {
     @State private var parks: [Park] = []
 
     var body: some View {
-        LazyVStack {
-            ForEach(parks) { park in
-                NavigationLink(value: park) {
-                    ParkRow(park: park)
+        ScrollView{
+            LazyVStack {
+                ForEach(parks) { park in
+                    NavigationLink(value: park) {
+                        ParkRow(park: park)
+                    }
                 }
             }
-        }
+        } .navigationDestination(for: Park.self) { park in
+            ParkDetailView(park: park)
         
     }
     private func fetchParks() async{
