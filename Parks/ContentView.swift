@@ -9,20 +9,29 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var parks: [Park] = []
-
     var body: some View {
-        ScrollView{
-            LazyVStack {
-                ForEach(parks) { park in
-                    NavigationLink(value: park) {
-                        ParkRow(park: park)
+        NavigationStack{
+            ScrollView{
+                LazyVStack {
+                    ForEach(parks) { park in
+                        NavigationLink(value: park) {
+                            ParkRow(park: park)
+                        }
                     }
                 }
+            } .navigationDestination(for: Park.self) { park in
+                ParkDetailView(park: park)
             }
-        } .navigationDestination(for: Park.self) { park in
-            ParkDetailView(park: park)
-        
+            .navigationTitle("National Parks")
+            
+        }
+        .onAppear(perform: ){
+            Task{
+                await fetchParks()
+            }
+        }
     }
+    
     private func fetchParks() async{
         
         // Do something when the view appears
@@ -34,6 +43,7 @@ struct ContentView: View {
         guard let apiKey = ProcessInfo.processInfo.environment["NPS_API_KEY"] else {
             fatalError("API key not found in environment variables.")
         }
+        
         let url = URL(string: "https://developer.nps.gov/api/v1/parks?stateCode=wa&api_key=\(apiKey)")!
         do {
             
@@ -52,14 +62,10 @@ struct ContentView: View {
             }
             
             // TODO: Set the parks state property
-           
             self.parks = parks
-            
         } catch {
             print(error.localizedDescription)
         }
-        
-        
     }
 }
 
